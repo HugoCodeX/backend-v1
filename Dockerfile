@@ -25,6 +25,6 @@ COPY --from=builder /app/node_modules ./node_modules
 COPY package.json ./
 
 # Ajusta el puerto si tu app usa otro diferente
-EXPOSE 666
+EXPOSE 3000
 
-CMD ["node", "dist/main"]
+CMD ["node", "dist/src/main.js"]
