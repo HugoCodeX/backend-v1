@@ -42,6 +42,9 @@ export class AuthService {
       email: dto.email,
       name: dto.name,
       passwordHash,
+      weight: dto.weight,
+      height: dto.height,
+      age: dto.age,
       verificationToken,
       verificationTokenExpiresAt,
     });

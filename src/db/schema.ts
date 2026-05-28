@@ -5,6 +5,8 @@ import {
   uuid,
   pgEnum,
   boolean,
+  integer,
+  real,
 } from 'drizzle-orm/pg-core';
 
 export const userRoleEnum = pgEnum('user_role', ['user', 'admin']);
@@ -14,6 +16,9 @@ export const users = pgTable('users', {
   email: text('email').notNull().unique(),
   passwordHash: text('password_hash').notNull(),
   name: text('name').notNull(),
+  weight: real('weight'),
+  height: real('height'),
+  age: integer('age'),
   role: userRoleEnum('role').notNull().default('user'),
   isVerified: boolean('is_verified').notNull().default(false),
   verificationToken: text('verification_token'),
