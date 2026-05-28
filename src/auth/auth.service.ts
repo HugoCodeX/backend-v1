@@ -49,8 +49,7 @@ export class AuthService {
     void this.emailService.sendVerificationEmail(user.email, verificationToken);
 
     return {
-      message:
-        'Registration Successful. Please check your email to verify your account',
+      message: 'Registration Successful. You can log in, but an optional verification link was sent to your email.',
     };
   }
 
@@ -103,12 +102,6 @@ export class AuthService {
 
     if (!passwordMatch) {
       throw new UnauthorizedException('Invalid email or password');
-    }
-
-    if (!user.isVerified) {
-      throw new UnauthorizedException(
-        'Please verify your email before logging in`',
-      );
     }
 
     const tokens = await this.generateTokens(user);
